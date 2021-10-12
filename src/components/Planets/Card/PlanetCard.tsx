@@ -7,6 +7,7 @@ min-width: 200px;
 border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
 background: #71797E;
+min-width: 400px;
 > h2 {
 color: #211a1e;
 }
@@ -23,7 +24,7 @@ padding: ${props => props.theme.baseUnit*2}px;
 
 interface IPlanetCardProps {
     planetName: string;
-    planetaryAge: number
+    planetaryAge: number | null;
 }
 
 export const PlanetCard: FC<IPlanetCardProps> = ({ planetName, planetaryAge }: IPlanetCardProps) => {
@@ -32,7 +33,7 @@ export const PlanetCard: FC<IPlanetCardProps> = ({ planetName, planetaryAge }: I
             <h2>{planetName}</h2>
             <img alt={`${planetName}`} src={`/assets/${planetName.toLocaleLowerCase()}.png`} />
             <InfoContainer className={'planet_info_container'}>
-                <div>{planetaryAge} years old</div>
+                {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
             </InfoContainer>
         </PlanetCardWrapper>
     );

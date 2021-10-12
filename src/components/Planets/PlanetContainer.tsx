@@ -6,7 +6,7 @@ import { IPerson } from '../../models/Person/IPerson';
 
 interface IPlanetContainerProps {
     planets: IPlanet[]
-    person: IPerson;
+    person: IPerson | null;
 }
 
 const PlanetContainerWrapper = styled.div`
@@ -26,7 +26,7 @@ export const PlanetContainer: FC<IPlanetContainerProps> = ({ planets, person }: 
                     <PlanetCard
                         key={planet.getName()}
                         planetName={planet.getName()}
-                        planetaryAge={person.getAgeInYearsByOrbitalPeriod(planet.getOrbitalPeriodInDays())}
+                        planetaryAge={person?.getAgeInYearsByOrbitalPeriod(planet.getOrbitalPeriodInDays()) || null}
                     />
                 )
             })}
