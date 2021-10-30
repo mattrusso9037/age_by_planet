@@ -12,11 +12,11 @@ interface IPlanetContainerProps {
 const PlanetContainerWrapper = styled.div`
 display: flex;
 flex-wrap: wrap;
+gap: 36px;
 margin: 24px;
 width: calc(100% - 48px);
 align-items: center;
 justify-content: center;
-gap: 8px;
 `;
 export const PlanetContainer: FC<IPlanetContainerProps> = ({ planets, person }: IPlanetContainerProps) => {
     return (

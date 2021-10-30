@@ -12,6 +12,7 @@ const AgeFormWrapper = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
+padding: 24px;
 > input {
     padding: 8px;
     outline: none;
