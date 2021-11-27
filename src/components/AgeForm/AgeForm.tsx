@@ -1,7 +1,11 @@
-import React, { ChangeEventHandler } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { IPerson } from '../../models/Person/IPerson';
-import { Person } from '../../models/Person/Person';
+import {IPerson} from '../../models/Person/IPerson';
+import {Person} from '../../models/Person/Person';
+import {MonthDropdown} from './MonthDropdown';
+import {DayDropdown} from './DayDropdown';
+import {YearDropdown} from './YearDropdown';
+import moment from 'moment';
 
 interface IAgeFormProps {
     setPerson: (person: IPerson | null) => void;
@@ -13,30 +17,56 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 24px;
-> input {
-    padding: 8px;
-    outline: none;
-    width: 30px;
+gap: 16px;
+    .ui.compact.search.selection.dropdown {
+        font-size: 18px;
     }
+}
+.ui.dropdown:not(.button)>.default.text {
+    color: #7b7b7b !important;
 }
 `;
 
-export const AgeForm: React.FC<IAgeFormProps> = ({ person, setPerson }) => {
-    const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-        const nextValue: string = event.target.value;
+export interface IFormState {
+    month: number | null;
+    day: number | null;
+    year: number | null;
+}
 
-        if (isValidInput(nextValue)) {
-            setPerson(new Person(Number(nextValue)));
+const DEFAULT_STATE: IFormState = {
+    month: null,
+    day: null,
+    year: null,
+};
+
+function allFieldsAreSelected(state: IFormState): boolean {
+    return Object
+        .values(state)
+        .every((val) => val !== null);
+}
+
+export const AgeForm: React.FC<IAgeFormProps> = ({person, setPerson}) => {
+    const [state, setState] = useState<IFormState>(DEFAULT_STATE);
+
+    useEffect(() => {
+        if (allFieldsAreSelected(state)) {
+            const age = getAge();
+
+            setPerson(new Person(age));
         }
-    };
+    }, [state]);
 
-    const isValidInput = (value: string): boolean => {
-        return value === '' || !!Number(value);
+    const getAge = (): number => {
+        const birthday: Date = new Date(state.year ?? 0, state.month ?? 0, state.day ?? 0);
+
+        return moment(moment.now()).diff(birthday, 'years', true);
     };
 
     return (
         <AgeFormWrapper>
-            <input type='text' placeholder={'Age'} value={person?.getAgeInYears() || ''} onChange={onChange}/>
+            <MonthDropdown state={state} setState={setState}/>
+            <DayDropdown state={state} setState={setState}/>
+            <YearDropdown state={state} setState={setState}/>
         </AgeFormWrapper>
     );
 }

@@ -35,7 +35,7 @@ font-size: 24px;
 const InfoContainer = styled.div`
 display: flex;
 flex-direction: column;
-padding: ${props => props.theme.baseUnit*2}px;
+padding: ${props => props.theme.baseUnit * 2}px;
 font-size: 1.1rem;
 `;
 
@@ -44,11 +44,17 @@ interface IPlanetCardProps {
     planetaryAge: number | null;
 }
 
-export const PlanetCard: FC<IPlanetCardProps> = ({ planetName, planetaryAge }: IPlanetCardProps) => {
+export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge}: IPlanetCardProps) => {
     return (
         <PlanetCardWrapper>
             <label>{planetName}</label>
-            <img alt={`${planetName}`} src={`/assets/${planetName.toLocaleLowerCase()}.png`} sizes={'((max-width: 600px)) 50px'} />
+            <img
+                width={150}
+                height={150}
+                loading={'lazy'}
+                alt={`${planetName}`}
+                src={`/assets/min/${planetName.toLocaleLowerCase()}-min.webp`} sizes={'((max-width: 600px)) 50px'}
+            />
             <InfoContainer className={'planet_info_container'}>
                 {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
             </InfoContainer>
