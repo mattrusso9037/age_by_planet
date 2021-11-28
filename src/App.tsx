@@ -16,11 +16,23 @@ background-image: url(./assets/space_bckg.webp);
 background-position-x: center;
 background-position-y: center;
 background-repeat: no-repeat;
-.description_container {
+ .planet_title {
+    font-size: 48px !important;
+      transition: all .5s;
+    @media (max-width: 600px) {
+        font-size: 36px !important;
+    }
+ }
+ .description_container {
     width: 80%; 
     padding: 24px;
     font-size: 20px;
     line-height: 30px !important;
+    transition: all .5s;
+    @media (max-width: 600px) {
+        font-size: 16px !important;
+    }
+ }
 `;
 
 function App() {
@@ -29,7 +41,7 @@ function App() {
             <AppWrapper>
                 <ThemeProvider theme={theme}>
                     <header className='App-header'>
-                        <Header style={{fontSize: 48}} as={'h1'}>Age By Planet</Header>
+                        <Header className={'planet_title'} as={'h1'}>Age By Planet</Header>
                         <div className={'description_container'}>
                             It takes the Earth about 365 days to orbit the sun, completing 1 year. How long is one year
                             on other planets, and how old would you be if you were living there?

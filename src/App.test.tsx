@@ -15,10 +15,4 @@ describe('App Component', () => {
         const tree = shallow(<App/>);
         expect(toJson(tree)).toMatchSnapshot();
     });
-
-    it('renders an image', () => {
-       const wrapper = shallow(<App />);
-
-       expect(wrapper.find('img').props().src).toEqual('pokeball_PNG8.png')
-    });
 });

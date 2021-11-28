@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component renders correctly 1`] = `
+<div
+  className="App"
+>
+  <styled.div>
+    <Component
+      theme={
+        Object {
+          "baseUnit": 8,
+          "bg": "white",
+          "fg": "palevioletred",
+        }
+      }
+    >
+      <header
+        className="App-header"
+      >
+        <Header
+          as="h1"
+          className="planet_title"
+        >
+          Age By Planet
+        </Header>
+        <div
+          className="description_container"
+        >
+          It takes the Earth about 365 days to orbit the sun, completing 1 year. How long is one year on other planets, and how old would you be if you were living there? Enter your age in the field below to determine your approximate age on each planet in our solar system!
+        </div>
+        <PlanetDisplay
+          title=""
+        />
+      </header>
+    </Component>
+  </styled.div>
+</div>
+`;

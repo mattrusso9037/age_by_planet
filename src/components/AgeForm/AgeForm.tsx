@@ -25,6 +25,9 @@ gap: 16px;
 .ui.dropdown:not(.button)>.default.text {
     color: #7b7b7b !important;
 }
+.ui.compact.search.selection.dropdown {
+    font-size: 1rem !important;
+}
 `;
 
 export interface IFormState {
@@ -39,12 +42,6 @@ const DEFAULT_STATE: IFormState = {
     year: null,
 };
 
-function allFieldsAreSelected(state: IFormState): boolean {
-    return Object
-        .values(state)
-        .every((val) => val !== null);
-}
-
 export const AgeForm: React.FC<IAgeFormProps> = ({person, setPerson}) => {
     const [state, setState] = useState<IFormState>(DEFAULT_STATE);
 
@@ -55,6 +52,12 @@ export const AgeForm: React.FC<IAgeFormProps> = ({person, setPerson}) => {
             setPerson(new Person(age));
         }
     }, [state]);
+
+    const allFieldsAreSelected = (state: IFormState): boolean => {
+        return Object
+            .values(state)
+            .every((val) => val !== null);
+    };
 
     const getAge = (): number => {
         const birthday: Date = new Date(state.year ?? 0, state.month ?? 0, state.day ?? 0);
