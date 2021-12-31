@@ -41,7 +41,7 @@ function App() {
             <AppWrapper>
                 <ThemeProvider theme={theme}>
                     <header className='App-header'>
-                        <Header className={'planet_title'} as={'h1'}>Age By Planet</Header>
+                        <Header className={'planet_title'} as={'h1'}>Your Age On Different Planets</Header>
                         <div className={'description_container'}>
                             It takes the Earth about 365 days to orbit the sun, completing 1 year. How long is one year
                             on other planets, and how old would you be if you were living there?
