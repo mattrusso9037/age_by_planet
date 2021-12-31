@@ -46,23 +46,23 @@ export const AgeForm: React.FC<IAgeFormProps> = ({person, setPerson}) => {
     const [state, setState] = useState<IFormState>(DEFAULT_STATE);
 
     useEffect(() => {
+        const getAge = (): number => {
+            const birthday: Date = new Date(state.year ?? 0, state.month ?? 0, state.day ?? 0);
+    
+            return moment(moment.now()).diff(birthday, 'years', true);
+        };
+
         if (allFieldsAreSelected(state)) {
             const age = getAge();
 
             setPerson(new Person(age));
         }
-    }, [state]);
+    }, [state, setPerson]);
 
     const allFieldsAreSelected = (state: IFormState): boolean => {
         return Object
             .values(state)
             .every((val) => val !== null);
-    };
-
-    const getAge = (): number => {
-        const birthday: Date = new Date(state.year ?? 0, state.month ?? 0, state.day ?? 0);
-
-        return moment(moment.now()).diff(birthday, 'years', true);
     };
 
     return (

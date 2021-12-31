@@ -7,7 +7,7 @@ import {shallow} from "enzyme";
 describe('App Component', () => {
     test('Renders Title', () => {
         render(<App/>);
-        const linkElement = screen.getByText(/Age By Planet/i);
+        const linkElement = screen.getByText(/Your Age On Other Planets/i);
         expect(linkElement).toBeInTheDocument();
     });
 

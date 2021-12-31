@@ -21,7 +21,7 @@ exports[`App Component renders correctly 1`] = `
           as="h1"
           className="planet_title"
         >
-          Age By Planet
+          Your Age On Other Planets
         </Header>
         <div
           className="description_container"

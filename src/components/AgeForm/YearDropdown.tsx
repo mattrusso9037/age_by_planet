@@ -4,10 +4,10 @@ import {IDropdownConfiguration} from "./DayDropdown";
 import { Dropdown } from 'semantic-ui-react';
 
 export const YearDropdown: React.FC<IDropdownProps> = ({state, setState}) => {
-    const YEAR_RANGE: number[] = [1940, new Date().getFullYear()];
     const [years, setYears] = useState<IDropdownConfiguration<number>[]>([]);
 
     useEffect(() => {
+        const YEAR_RANGE: number[] = [1940, new Date().getFullYear()];
         const nextYears: IDropdownConfiguration<number>[] = [];
 
         for (let i = YEAR_RANGE[1]; i >= YEAR_RANGE[0]; i--) {
