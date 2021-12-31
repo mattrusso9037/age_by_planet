@@ -4,7 +4,7 @@ export class Person implements IPerson {
     private readonly age: number;
 
     constructor(age: number) {
-        this.age = 62;
+        this.age = age;
     }
 
     private getAgeInDays(): number {
