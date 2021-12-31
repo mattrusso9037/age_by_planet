@@ -1,8 +1,5 @@
 import {IPerson} from './IPerson';
 
-/**
- * A class to represent a person. 3
- */
 export class Person implements IPerson {
     private readonly age: number;
 
