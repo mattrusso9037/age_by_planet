@@ -26,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "tsc && react-scripts test && npm run build && firebase deploy --project age-by-planet"
   },
   "eslintConfig": {
     "extends": [
