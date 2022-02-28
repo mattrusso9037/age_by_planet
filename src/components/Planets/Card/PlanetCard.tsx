@@ -1,5 +1,8 @@
 import React, {FC} from "react";
 import styled from 'styled-components';
+import { PlanetContainer } from "../PlanetContainer";
+import { PlanetDisplay } from "../PlanetDisplay";
+
 
 const PlanetCardWrapper = styled.div`
 width: 350px;
@@ -42,9 +45,12 @@ font-size: 1.1rem;
 interface IPlanetCardProps {
     planetName: string;
     planetaryAge: number | null;
+    orbitalPeriod: number;
 }
 
-export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge}: IPlanetCardProps) => {
+
+
+export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbitalPeriod}: IPlanetCardProps) => {
     return (
         <PlanetCardWrapper>
             <label>{planetName}</label>
@@ -57,7 +63,11 @@ export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge}: IPl
             />
             <InfoContainer className={'planet_info_container'}>
                 {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
+                {orbitalPeriod ? <div>{orbitalPeriod} years old</div> : '--'}
+                {orbitalPeriod} days
             </InfoContainer>
+
+            
         </PlanetCardWrapper>
     );
 }
