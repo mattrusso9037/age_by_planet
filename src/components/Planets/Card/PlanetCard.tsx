@@ -1,7 +1,6 @@
 import React, {FC} from "react";
 import styled from 'styled-components';
-import { PlanetContainer } from "../PlanetContainer";
-import { PlanetDisplay } from "../PlanetDisplay";
+
 
 
 const PlanetCardWrapper = styled.div`
