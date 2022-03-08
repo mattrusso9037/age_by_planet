@@ -43,7 +43,6 @@ font-size: 1.1rem;
 `;
 
 const orbitalinline: CSS.Properties={
-
 marginTop: '30px'
 };
 
@@ -67,7 +66,6 @@ export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbi
                 src={`/assets/min/${planetName.toLocaleLowerCase()}-min.webp`} sizes={'((max-width: 600px)) 50px'}
             />
             <InfoContainer className={'planet_info_container'}>
-                {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
                 <label style={orbitalinline}>Orbital Period : {orbitalPeriod} days</label>
             </InfoContainer>
 
