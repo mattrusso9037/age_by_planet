@@ -45,8 +45,6 @@ padding: ${props => props.theme.baseUnit * 2}px;
 font-size: 1.1rem;
 `;
 
-
-
 interface IPlanetCardProps {
     planetName: string;
     planetaryAge: number | null;
