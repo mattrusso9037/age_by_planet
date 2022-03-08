@@ -57,7 +57,7 @@ interface IPlanetCardProps {
 export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbitalPeriod}: IPlanetCardProps) => {
     return (
         <PlanetCardWrapper>
-            <label>{planetName}</label>
+            <label className='planet_name'>{planetName}</label>
             <img
                 width={150}
                 height={150}

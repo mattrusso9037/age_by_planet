@@ -12,7 +12,7 @@ describe('Planet Display Component', () => {
     it('should render name', () => {
         const wrapper = shallow(<PlanetCard planetName={'Earth'} orbitalPeriod={0} planetaryAge={35} />);
 
-        expect(wrapper.find('label').text()).toEqual('Earth');
+        expect(wrapper.find('.planet_name').text()).toEqual('Earth');
     });
 
     it('should render age', () => {
