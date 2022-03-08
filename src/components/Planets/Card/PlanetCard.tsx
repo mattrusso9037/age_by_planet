@@ -1,6 +1,7 @@
 import React, {FC} from "react";
-import styled from 'styled-components';
-
+import { FormDropdown } from "semantic-ui-react";
+import styled, { css } from 'styled-components';
+import CSS from 'csstype';
 
 
 const PlanetCardWrapper = styled.div`
@@ -41,6 +42,11 @@ padding: ${props => props.theme.baseUnit * 2}px;
 font-size: 1.1rem;
 `;
 
+const orbitalinline: CSS.Properties={
+
+marginTop: '30px'
+};
+
 interface IPlanetCardProps {
     planetName: string;
     planetaryAge: number | null;
@@ -62,8 +68,7 @@ export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbi
             />
             <InfoContainer className={'planet_info_container'}>
                 {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
-                {orbitalPeriod ? <div>{orbitalPeriod} years old</div> : '--'}
-                {orbitalPeriod} days
+                <label style={orbitalinline}>Orbital Period : {orbitalPeriod} days</label>
             </InfoContainer>
 
             
