@@ -33,6 +33,9 @@ font-size: 24px;
         max-height: 125px;
     }
 }
+label {
+    margin-top: 30px;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -42,9 +45,7 @@ padding: ${props => props.theme.baseUnit * 2}px;
 font-size: 1.1rem;
 `;
 
-const orbitalinline: CSS.Properties={
-marginTop: '30px'
-};
+
 
 interface IPlanetCardProps {
     planetName: string;
@@ -56,8 +57,8 @@ interface IPlanetCardProps {
 
 export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbitalPeriod}: IPlanetCardProps) => {
     return (
-        <PlanetCardWrapper>
-            <label>{planetName}</label>
+        <PlanetCardWrapper >
+            <label className= {'planet_name'}>{planetName}</label>
             <img
                 width={150}
                 height={150}
@@ -66,7 +67,8 @@ export const PlanetCard: FC<IPlanetCardProps> = ({planetName, planetaryAge, orbi
                 src={`/assets/min/${planetName.toLocaleLowerCase()}-min.webp`} sizes={'((max-width: 600px)) 50px'}
             />
             <InfoContainer className={'planet_info_container'}>
-                <label style={orbitalinline}>Orbital Period : {orbitalPeriod} days</label>
+                {planetaryAge ? <div>{planetaryAge} years old</div> : '--'}
+                <label >Orbital Period : {orbitalPeriod} days</label>
             </InfoContainer>
 
             
