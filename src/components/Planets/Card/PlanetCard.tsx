@@ -1,7 +1,6 @@
 import React, {FC} from "react";
-import { FormDropdown } from "semantic-ui-react";
-import styled, { css } from 'styled-components';
-import CSS from 'csstype';
+import styled from 'styled-components';
+
 
 
 const PlanetCardWrapper = styled.div`
