@@ -19,6 +19,7 @@ align-items: center;
 justify-content: center;
 `;
 export const PlanetContainer: FC<IPlanetContainerProps> = ({ planets, person }: IPlanetContainerProps) => {
+ 
     return (
         <PlanetContainerWrapper data-test-id={'test'}>
             { planets.map((planet) => {
@@ -27,6 +28,7 @@ export const PlanetContainer: FC<IPlanetContainerProps> = ({ planets, person }: 
                         key={planet.getName()}
                         planetName={planet.getName()}
                         planetaryAge={person?.getAgeInYearsByOrbitalPeriod(planet.getOrbitalPeriodInDays()) || null}
+                        orbitalPeriod={planet.getOrbitalPeriodInDays()}
                     />
                 )
             })}
